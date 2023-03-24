@@ -1,5 +1,31 @@
 {
   "dependencies": {
     "prettier": "^2.8.7"
-  }
+  },
+  "name": "psych-bandit",
+  "description": "This is an implementation of a bandit task simulation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g-morishita/psych-bandit.git"
+  },
+  "keywords": [
+    "bandit",
+    "psychology"
+  ],
+  "author": "Gota Morishita <gota.morishita@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/g-morishita/psych-bandit/issues"
+  },
+  "homepage": "https://github.com/g-morishita/psych-bandit#readme",
+  "type": "module"
 }
