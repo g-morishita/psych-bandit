@@ -4,7 +4,7 @@
   },
   "name": "psych-bandit",
   "description": "This is an implementation of a bandit task simulation",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "directories": {
     "test": "tests"
