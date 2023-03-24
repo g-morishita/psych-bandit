@@ -1,11 +1,11 @@
-import { Agent} from "./agent.mjs";
+import { Agent } from "./agent.mjs";
 
 class RLAgent extends Agent {
-    constructor(lr, beta, numChoices, initialValue) {
+    constructor(lr, beta, initialValues) {
         super();
         this.lr = lr;
         this.beta = beta; // inverse temperature
-        this._values = Array(numChoices).fill(initialValue);
+        this._values = initialValues;
     }
 
     set lr(newLr) {
@@ -50,7 +50,7 @@ class RLAgent extends Agent {
 
     #calculateCumDistWithSoftmax() {
         // const sum = this._qValues.reduce((prevVal, currVal) => prevVal + currVal, 0);
-        const expQ = this._qValues.map((qVal) => Math.exp(this.beta * qVal));
+        const expQ = this._values.map((qVal) => Math.exp(this.beta * qVal));
         const sum = expQ.reduce((prevVal, currVal) => prevVal + currVal, 0);
         let cumSum = 0;
         const cumulativeDist = expQ.map((expQVal) => cumSum += expQVal / sum);
