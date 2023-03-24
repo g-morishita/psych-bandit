@@ -37,3 +37,5 @@ class StableBernoulliBandit extends Bandit {
         return 0;
     }
 }
+
+export { StableBernoulliBandit };
