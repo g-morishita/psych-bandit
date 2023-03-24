@@ -1,6 +1,8 @@
 class Agent {
     constructor() {
-        throw new Error("Abstract classes can't be instantiated.");
+        if (this.constructor === Agent) {
+            throw new Error("Abstract classes can't be instantiated.");
+        }
     }
 
     makeChoice() {
