@@ -49,7 +49,6 @@ class RLAgent extends Agent {
   }
 
   #calculateCumDistWithSoftmax() {
-    // const sum = this._qValues.reduce((prevVal, currVal) => prevVal + currVal, 0);
     const expQ = this._values.map((qVal) => Math.exp(this.beta * qVal));
     const sum = expQ.reduce((prevVal, currVal) => prevVal + currVal, 0);
     let cumSum = 0;
