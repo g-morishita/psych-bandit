@@ -29,15 +29,15 @@ class StableBernoulliBandit extends Bandit {
     this._rewardProbabilities = rewardProbabilities;
   }
 
-  getReward(chosenArm) {
+  getReward(madeChoice) {
     const randomVal = Math.random();
-    if (chosenArm >= this._rewardProbabilities.length) {
+    if (madeChoice >= this._rewardProbabilities.length) {
       throw new Error(
-        `The index of arm exceeds the given reward vector. Given ${chosenArm}`
+        `The index of arm exceeds the given reward vector. Given ${madeChoice}`
       );
     }
-    const meanReward = this._rewardProbabilities[chosenArm];
-    if (meanReward > randomVal) {
+    const rewardProbability = this._rewardProbabilities[madeChoice];
+    if (rewardProbability > randomVal) {
       return 1;
     }
     return 0;
