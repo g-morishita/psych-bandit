@@ -23,11 +23,11 @@ Agents, on the other hand, are decision-making entities. In the context of the b
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/multiarmed-bandit-agent-module.git
+   git clone https://github.com/g-morishita/psych-bandit.git
    ```
 2. Navigate to the project directory:
    ```
-   cd multiarmed-bandit-agent-module
+   cd psych-bandit
    ```
 3. Install the dependencies (if any):
    ```
