@@ -1,8 +1,8 @@
-# psych-bandit - Multi-Armed Bandit & Agent Module
+# Multi-Armed Bandit & Agent Module
 
 This repository contains implementations for both a multi-armed bandit problem and decision-making agents. The primary focus is on simulating reinforcement learning scenarios using bandit problems and evaluating various agent strategies.
 
-## 📖 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Installation](#installation)
@@ -13,70 +13,71 @@ This repository contains implementations for both a multi-armed bandit problem a
 - [Contributing](#contributing)
 - [License](#license)
 
-## 📜 Overview
+## Overview
 
-**Bandit**: Represents a generic bandit problem in the context of reinforcement learning. This is extended by specific bandit problem implementations, like `StableBernoulliBandit`, which provides rewards based on a Bernoulli distribution.
+The multi-armed bandit problem is a classic problem in probability theory and statistics. It represents the challenge of decision-making under uncertainty. The repository provides a general bandit class and a specific implementation where the probabilities remain stable.
 
-**Agent**: An abstract base class representing a generic decision-making agent. This can be extended to implement specific decision-making mechanisms like `RLAgent` which makes choices based on a softmax policy.
+Agents, on the other hand, are decision-making entities. In the context of the bandit problem, they select arms and then learn from the rewards they receive.
 
-## ⬇️ Installation
+## Installation
 
-1. **Clone** the repository:
-   \```
-   git clone https://github.com/your_username/your_repository_name.git
-   \```
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/multiarmed-bandit-agent-module.git
+   ```
+2. Navigate to the project directory:
+   ```
+   cd multiarmed-bandit-agent-module
+   ```
+3. Install the dependencies (if any):
+   ```
+   npm install
+   ```
 
-2. **Navigate** to the repository's root directory:
-   \```
-   cd your_repository_name
-   \```
-
-## 🛠 Usage
+## Usage
 
 ### Bandit
 
-1. **Import** the desired Bandit variant, e.g., `StableBernoulliBandit`.
-   \```javascript
-   import { StableBernoulliBandit } from './src/bandits/StableBernoulliBandit.mjs';
-   \```
+To use the bandit module:
 
-2. **Instantiate** and use:
-   \```javascript
-   const bandit = new StableBernoulliBandit([0.2, 0.8]);
-   const reward = bandit.getReward(0); // Gets reward for the first arm
-   \```
+```javascript
+import { StableBernoulliBandit } from './path-to-bandit-module';
+
+const rewardProbabilities = [0.2, 0.5, 0.8];
+const bandit = new StableBernoulliBandit(rewardProbabilities);
+
+const reward = bandit.getReward(1);  // Gets reward from the second arm.
+```
 
 ### Agent
 
-1. **Import** the desired Agent, e.g., `RLAgent`.
-   \```javascript
-   import { RLAgent } from './src/agents/RLAgent.mjs';
-   \```
+To use the agent module:
 
-2. **Instantiate** and use:
-   \```javascript
-   const agent = new RLAgent(0.1, 0.5, [0, 0]);
-   const choice = agent.makeChoice(); // Agent makes a choice based on its policy
-   \```
+```javascript
+import { RLAgent } from './path-to-agent-module';
 
-## 🧪 Testing
+const initialValues = [0, 0, 0];
+const learningRate = 0.1;
+const beta = 1;
 
-To run tests for the modules, use the following command:
+const agent = new RLAgent(learningRate, beta, initialValues);
+const chosenArm = agent.makeChoice();
+```
 
-\```
+## Testing
+
+To run tests:
+
+```shell
 npm test
-\```
+```
 
-Ensure you have the required packages installed:
+Ensure that you have [Jest](https://jestjs.io/) installed and set up in your project.
 
-\```
-npm install
-\```
+## Contributing
 
-## 🤝 Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [Issues](https://github.com/your_username/your_repository_name/issues) page.
+## License
 
-## 📄 License
-
-This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
