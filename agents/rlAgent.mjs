@@ -4,13 +4,13 @@ class RLAgent extends Agent {
   constructor(lr, beta, initialValues) {
     super();
     this.lr = lr;
-    this.beta = beta; // inverse temperature
+    this.beta = beta;
     this._values = initialValues;
   }
 
   set lr(newLr) {
-    if (0 >= newLr && newLr >= 1) {
-      throw `alpha must be between 0 and 1. Given ${newLr}`;
+    if (newLr < 0 || newLr > 1) {
+      throw new Error(`alpha must be between 0 and 1. Given ${newLr}`);
     }
     this._lr = newLr;
   }
@@ -25,35 +25,30 @@ class RLAgent extends Agent {
     }
     this._beta = newBeta;
   }
+
   get beta() {
     return this._beta;
-  }
-
-  set values(newValues) {
-    throw `You cannot change the number of arms.`;
   }
 
   get values() {
     return this._values;
   }
 
+  set values(_) {
+    throw new Error(`You cannot change the number of arms.`);
+  }
+
   makeChoice() {
     const cumDist = this.#calculateCumDistWithSoftmax();
     const randomVal = Math.random();
-    for (let i = 0; i < cumDist.length; i++) {
-      if (randomVal < cumDist[i]) {
-        return i;
-      }
-    }
-    return cumDist.length - 1;
+    return cumDist.findIndex((val) => randomVal < val) || cumDist.length - 1;
   }
 
   #calculateCumDistWithSoftmax() {
     const expQ = this._values.map((qVal) => Math.exp(this.beta * qVal));
-    const sum = expQ.reduce((prevVal, currVal) => prevVal + currVal, 0);
+    const sum = expQ.reduce((acc, val) => acc + val, 0);
     let cumSum = 0;
-    const cumulativeDist = expQ.map((expQVal) => (cumSum += expQVal / sum));
-    return cumulativeDist;
+    return expQ.map((expQVal) => (cumSum += expQVal / sum));
   }
 
   learn(madeChoice, reward) {
