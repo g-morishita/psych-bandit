@@ -1,6 +1,6 @@
 import { Agent } from "./agent.mjs";
 
-class RLAgent extends Agent {
+class RL extends Agent {
   constructor(lr, beta, initialValues) {
     super();
     this.lr = lr;
@@ -61,4 +61,4 @@ class RLAgent extends Agent {
   }
 }
 
-export { RLAgent };
+export { RL };

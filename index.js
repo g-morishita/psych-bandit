@@ -1,4 +1,4 @@
-import { RLAgent } from './agents/rlAgent.mjs';
+import { RL } from './agents/RL.mjs';
 import { StableBernoulliBandit } from "./bandits/bernoulliBandit.mjs";
 
-export { RLAgent, StableBernoulliBandit };
+export { RL, StableBernoulliBandit };
