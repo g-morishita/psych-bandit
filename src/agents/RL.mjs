@@ -1,4 +1,4 @@
-import { Agent } from "./agent.mjs";
+import { Agent } from "./Agent.mjs";
 
 /**
  * RLAgent represents a reinforcement learning agent which makes choices
