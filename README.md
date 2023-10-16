@@ -1,4 +1,4 @@
-# Multi-Armed Bandit & Agent Module
+# psych-bandit - Multi-Armed Bandit & Agent Module
 
 This repository contains implementations for both a multi-armed bandit problem and decision-making agents. The primary focus is on simulating reinforcement learning scenarios using bandit problems and evaluating various agent strategies.
 
