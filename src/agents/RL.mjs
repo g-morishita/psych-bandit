@@ -69,7 +69,7 @@ class RLAgent extends Agent {
   makeChoice() {
     const cumDist = this.#calculateCumDistWithSoftmax();
     const randomVal = Math.random();
-    return cumDist.findIndex(val => randomVal < val) || cumDist.length - 1;
+    return cumDist.findIndex(val => randomVal <= val);
   }
 
   /**
